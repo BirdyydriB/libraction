@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nous>
+  <libracteur>
+    <nom>Saül Ozier</nom>
+    <avatar>guillaume.jpg</avatar>
+    <presentation>Amoureux de la nature, des gens et de Bourdieu.</presentation>
+  </libracteur>
+
+  <libracteur>
+    <nom>Jo</nom>
+    <avatar>jonathan.jpeg</avatar>
+    <presentation>Anarcho-mathématicien ludophile.</presentation>
+  </libracteur>
+
+  <libracteur>
+    <nom>Birdy</nom>
+    <avatar>birdy.jpg</avatar>
+    <presentation>Mon métier : développeur web. Mes passions : la politique, les jeux de société et la musique.</presentation>
+  </libracteur>
+
+</nous>

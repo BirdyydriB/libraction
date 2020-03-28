@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<liens>
+  <lien>
+    <titre>The internet's own boy</titre>
+    <image>https://cdn.newsapi.com.au/image/v1/d91dea0e0460b1c04309aa3268a8deab</image>
+    <url>https://www.youtube.com/watch?v=7ZBe1VFy0gc</url>
+    <description>
+      <p>
+        Ce film raconte l'histoire de Aaron Swartz, programmeur de génie et activiste de l'information.<br/>
+        Depuis l'aide qu'il a apportée au développement de RSS, l'un des protocoles à la base d'Internet, à la co-fondation de Reddit, son empreinte est partout sur Internet.
+      </p>
+    </description>
+  </lien>
+
+  <lien>
+    <titre>Confessions d’un voleur</titre>
+    <image>https://s2.qwant.com/thumbr/0x0/5/6/5419ad3703b07cfd19289cfe73a88fde85fcbad053def7431bfc196bf9de04/Laurent_Chemla.jpg?u=http%3A%2F%2Fwww.lacantine-brest.net%2Fwp-content%2Fuploads%2F2015%2F04%2FLaurent_Chemla.jpg</image>
+    <url>http://www.confessions-voleur.net/confessions.pdf</url>
+    <description>
+      <p>
+        Livre écrit par Laurent Chemla, le premier informaticien français à avoir été inculpé puis relaxé pour piratage informatique.<br/>
+        En 2002, il écrit le livre Confessions d'un voleur : Internet, la liberté confisquée, où il décrit sa vision d'Internet.
+      </p>
+    </description>
+  </lien>
+
+</liens>

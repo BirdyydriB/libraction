@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<events>
+  <event>
+    <titre>Matinée données personnelles et sécurité – L’après</titre>
+    <image>https://2.bp.blogspot.com/-d7Zs7ro-LSE/WUkxusq5IBI/AAAAAAAAGrs/UqsDR74zaYAHtLQzu06jMAc3TUr-cbmXwCLcBGAs/s1600/privacy.jpg</image>
+    <date>19/11/2017</date>
+    <lieu>CyberCentre</lieu>
+    <description>
+      <p>
+        Pour faire suite a notre matinée du 18 novembre, je commencerais par remercier les personnes qui sont venues à notre rencontre.<br/>
+        En attendant que nous peaufinions nos articles, voici une liste non exhaustive des sites évoqués.<br/>
+        Données Personnelles et sécurité :<br/>
+      </p>
+      <ul>
+        <li>https://www.cnil.fr</li>
+        <li>https://guide.boum.org/</li>
+        <li>https://tails.boum.org</li>
+        <li>https://cafevieprivee-nantes.fr</li>
+        <li>https://www.ssi.gouv.fr/particulier/</li>
+      </ul>
+      Logiciel Libre :<br/>
+      <ul>
+        <li>https://framasoft.org/</li>
+        <li>https://keepass.info/ ( Gestionnaire de mot de passe)</li>
+      </ul>
+    </description>
+  </event>
+
+  <event>
+    <titre>Matinée données personnelles et sécurité</titre>
+    <image>https://2.bp.blogspot.com/-d7Zs7ro-LSE/WUkxusq5IBI/AAAAAAAAGrs/UqsDR74zaYAHtLQzu06jMAc3TUr-cbmXwCLcBGAs/s1600/privacy.jpg</image>
+    <date>18/11/2017</date>
+    <lieu>CyberCentre</lieu>
+    <description>
+      <p>
+        Suite à la diffusion du film Snowden au Nozek le 17 novembre, nous vous proposons quelques ateliers découverte autour de vos données personnelles, comment sont-elles intéressantes et pour qui ?
+      </p>
+      Découvrir les conseils de bonnes pratiques dans le numérique au quotidien :<br/>
+      <ul>
+        <li>Prise de conscience des traces que l’on laisse sur un appareil numérique surtout connecté.</li>
+        <li>Les données personnelles, que souhaite-t-on maitriser?</li>
+        <li>Les sites ou trouver les conseils et s’auto-former.</li>
+        <li>Choix des systèmes exploitations, logiciels, niveaux de sécurité ( extensions firefox…)</li>
+      </ul>
+      Découvrir le chiffrement :<br/>
+      <ul>
+        <li>Types de chiffrements?</li>
+        <li>Que chiffrer?</li>
+        <li>Comment chiffrer?</li>
+        <li>La confiance</li>
+        <li>hygiène vigilance sur les sites?</li>
+      </ul>
+      Tor et tails :<br/>
+      <ul>
+        <li>Qu’est-ce donc</li>
+        <li>Comment préparer sa clé</li>
+        <li>Limites de l’anonymat</li>
+      </ul>
+    </description>
+  </event>
+  
+</events>

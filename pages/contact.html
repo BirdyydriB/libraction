@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="../index.css">
+  <title>Nous contacter</title>
+</head>
+
+<body>
+  <div id="menu">
+  </div>
+
+  <div>
+    <div id="content">
+      <div class="container">
+        <div class="row">
+          <div class="col align-self-center text-center">
+            <h1>Nous contacter</h1>
+          </div>
+        </div>
+        <br />
+
+        <div class="row">
+          <div class="col align-self-left">
+            <p>Envoyez nous un mail à <a href="mailto:contact@libraction-asso.fr">contact@libraction-asso.fr</a> ou utilisez le formulaire ci-dessous. Sinon, venez nous rencontrer en vrai, lors d'une de nos <a href="events.html">permanences</a> au cybercentre.</p>
+          </div>
+        </div>
+
+        <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=-1.6260087490081787%2C47.55956859765743%2C-1.620215177536011%2C47.56280842824846&amp;layer=mapnik&amp;marker=47.561188537997346%2C-1.6231119632720947" style="border: 1px solid black"></iframe>
+        <br/>
+        <small>
+          <a href="https://www.openstreetmap.org/?mlat=47.56119&amp;mlon=-1.62311#map=18/47.56119/-1.62311" target="_blank">Afficher une carte plus grande</a>
+        </small>
+        <br/>
+        <br/>
+
+        <div class="row">
+          <div class="col align-self-left">
+            <form id="contact" action="mail.php" method="POST">
+              <div class="form-group">
+                <label for="mailName">Nom <span>*</span></label>
+                <input type="text" id="mailName" name="mailName" class="form-control col-sm-4" placeholder="Saisissez votre nom" required="required">
+              </div>
+
+              <div class="form-group">
+                <label for="mailEmail">Email <span>*</span></label>
+                <input type="email" id="mailEmail" name="mailEmail" class="form-control col-sm-4" placeholder="Saisissez votre adresse email" required="required">
+              </div>
+
+              <div class="form-group">
+                <label for="mailMessage">Message <span>*</span></label>
+                <textarea rows="5" id="mailMessage" name="mailMessage" class="form-control" placeholder="Rédigez votre message" required="required"></textarea>
+              </div>
+
+              <button class="button btn btn-primary text-uppercase" type="submit" name="mailSubmit">Envoyer</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="mailSended" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-header">
+          <h5 class="modal-title">Mail</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-content">
+          Votre mail a bien été envoyé. Merci pour votre demande de contact, nous vous répondrons dès que possible.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+  <script src="../index.js"></script>
+  <script type="text/javascript" class="onLoad">
+    const urlVars = getUrlVars();
+    if (urlVars['mail'] && (urlVars['mail'] == 'ok')) {
+      $('#mailSended').modal('show')
+    }
+  </script>
+</body>
+
+</html>

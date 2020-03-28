@@ -1,0 +1,52 @@
+.container {
+  margin-top: 2em;
+}
+.jumbotron {
+  color: #000;
+  height: 40rem;
+  background-image: url(assets/highland-beef-2760124_1920.jpg);
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+}
+.jumbotron h1 {
+  -webkit-text-stroke: 1px black;
+  color: white;
+  text-shadow:
+    3px 3px 0 #000,
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
+article {
+  margin: 1em;
+  display: block;
+}
+.flex-wrapper {
+  justify-content: center;
+}
+.article-left {
+  width: 20em;
+}
+.article-right {
+  max-height: 20em;
+  min-width: 20em;
+  max-width: 40em;
+}
+.image {
+  height: 100%;
+  width: 20em;
+}
+.futureEvent {
+  border-color: green !important;
+  border-width: 2px !important;
+}
+.pastEvent {
+  border-color: red !important;
+  border-width: 2px !important;
+}
+.description {
+  overflow-y: auto;
+}

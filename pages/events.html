@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="../index.css">
+  <title>Les événements</title>
+</head>
+
+<body>
+  <div id="menu">
+  </div>
+
+  <div>
+    <div id="content">
+      <div class="container">
+        <div class="row">
+          <div class="col align-self-center text-center">
+            <h1>Les événements</h1>
+          </div>
+        </div>
+        <br/>
+
+        <div class="row">
+          <div class="col align-self-left">
+            <p>Retrouvez sur cette page tous les événements que Libr@ction organise.</p>
+          </div>
+        </div>
+        <br/>
+
+        <div id="events" class="row">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+  <script src="../index.js"></script>
+  <script type="text/javascript" class="onLoad">
+    jQuery.fn.hasOverflowed = function() {
+      var cont = $('<div>'+this.text()+'</div>').css("display", "table")
+      .css("z-index", "-1").css("position", "absolute")
+      .css("font-family", this.css("font-family"))
+      .css("font-size", this.css("font-size"))
+      .css("font-weight", this.css("font-weight"))
+      .css("width", this.css("width")).appendTo('body');
+      const res = (cont.height() > this.height());
+      cont.remove();
+      return res;
+    }
+
+    var ficheHTML = '';
+
+    function getTemplate() {
+      $.ajax({
+        url : absolutePath + '/components/fiche-event.html',
+        type : 'GET',
+        dataType : 'html',
+        success : function(response) {
+          ficheHTML = response;
+          getDatas();
+        }
+      });
+    }
+
+    function getNextPermanenceEvent() {
+      const now = new Date();
+      var lastSaturdayDate = [];
+      for(var i = 0 ; i <= 1 ; i++) {
+        const year = now.getFullYear();
+        const month = now.getMonth() + i;
+        const lastDay = new Date(year, month + 1, 0);
+        const lastSaturday = (lastDay.getDate() - (lastDay.getDay() - 6));
+        lastSaturdayDate[i] = new Date(year, month, lastSaturday);
+        if(lastSaturdayDate[i].getMonth() != month) {
+          lastSaturdayDate[i] = new Date(year, month, (lastSaturday - 7));
+        }
+      }
+      const nextLastSaturday = (now > lastSaturdayDate[0]) ?
+        lastSaturdayDate[1]:
+        lastSaturdayDate[0];
+
+      const eventDOM = $(ficheHTML);
+      eventDOM.addClass('futureEvent');
+      eventDOM.find('.image').attr('src', 'https://static.actu.fr/uploads/2019/01/25099-190131171810369-0.jpg');
+      eventDOM.find('.image').attr('alt', 'Permanence Libr@ction');
+      eventDOM.find('.titre').html('Permanence Libr@ction');
+      eventDOM.find('.date').html(nextLastSaturday.toLocaleDateString('fr-FR'));
+      // prez.find('.lieu').html($(this).find('lieu').text());
+      eventDOM.find('.description').html(`
+        <p class="bg-danger">
+          En raison des événements COVID-19, nous ne tenons pas de permanence. Mais nous sommes toujours là ! Alors n'hésitez pas à nous contacter si vous avez besoin d'un coup de main.
+        </p>
+        <p>
+          Tous les derniers samedis du mois, <strong>de 10h30 à 12h30</strong>, venez nous retrouver pour l'une de nos permanence. Venez avec votre PC, votre téléphone, vos questions ou juste avec votre envie d'échanger.
+        </p>
+      `);
+      return {
+        DOM: eventDOM,
+        date: nextLastSaturday
+      };
+    }
+
+    function getDatas() {
+      var events = [];
+
+      $.ajax({
+        url : absolutePath + '/datas/events.xml',
+        type : 'GET',
+        dataType : 'xml',
+        success : function(response) {
+          const now = new Date();
+
+          $(response).find('events event').each(function() {
+            const eventDOM = $(ficheHTML);
+            const eventDate = $(this).find('date').text();
+            const eventDateArray = eventDate.split('/');
+            const eventDateDate = new Date(eventDateArray[2], eventDateArray[1] - 1, eventDateArray[0]);
+
+            eventDOM.addClass(((eventDateDate > now) ? 'futureEvent' : 'pastEvent'));
+            const srcImage = $(this).find('image').text().startsWith('http') ?
+              $(this).find('image').text() :
+              '../assets/' + $(this).find('image').text();
+            eventDOM.find('.image').attr('src', srcImage);
+            eventDOM.find('.image').attr('alt', $(this).find('titre').text());
+            eventDOM.find('.titre').html($(this).find('titre').text());
+            eventDOM.find('.date').html(eventDate);
+            // prez.find('.lieu').html($(this).find('lieu').text());
+            eventDOM.find('.description').html($(this).find('description').html());
+            events.push({
+              DOM: eventDOM,
+              date: eventDateDate
+            });
+            // console.log(eventDOM.find('.description').hasOverflowed());
+          });
+
+          events.push(getNextPermanenceEvent());
+
+          // Sort events by newest
+          events.sort(function(e1, e2) {
+            return e2.date - e1.date;
+          });
+          for(currentEvent of events) {
+            $('#events').append(currentEvent.DOM);
+          }
+        }
+      });
+    }
+
+    getTemplate();
+  </script>
+</body>
+
+</html>
